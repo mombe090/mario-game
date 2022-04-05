@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: marionewdeployment
+  labels:
+    app: marionew
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: marionew
+  template:
+    metadata:
+      labels:
+        app: marionew
+    spec:
+      containers:
+      - name: supermario
+        image: pengbai/docker-supermario:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
